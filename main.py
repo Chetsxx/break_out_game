@@ -32,7 +32,7 @@ def hit():
 game_on = True
 
 while game_on:
-    time.sleep(0.01)
+    time.sleep(ball.move_speed)
     screen.update()
     ball.move()
 
@@ -42,13 +42,15 @@ while game_on:
     if ball.ycor() > 300:
         ball.y_bounce()
 
-    if ball.distance(paddle) < 100 and ball.ycor() < -280:
+    if ball.distance(paddle) < 100 and ball.ycor() < -275:
         ball.y_bounce()
+        ball.increase_speed()
 
     if ball.distance(paddle) > 100 and ball.ycor() < -280:
         ball.y_bounce()
         scoreboard.life -= 1
         scoreboard.update_scoreboard()
+        ball.reset_speed()
 
     if scoreboard.life == 0 or scoreboard.score == len(wall.bricks):
         game_on = False

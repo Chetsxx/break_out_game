@@ -21,7 +21,7 @@ class Wall:
         for w in range(12):
             wall = Turtle()
             wall.penup()
-            wall.color("white")
+            wall.color("brown")
             wall.shape('square')
             wall.shapesize(stretch_wid=1, stretch_len=2.5)
             wall.goto(self.x, 200)
